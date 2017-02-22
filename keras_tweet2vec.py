@@ -12,7 +12,6 @@ from IPython.display import SVG
 from matplotlib import pyplot as plt
 plt.style.use("ggplot")
 
-
 tweets = []
 labels = []
 #with open("./data/tweets.tsv") as f:
@@ -29,9 +28,9 @@ tokenizer.fit_on_texts(tweets)
 X_train = tokenizer.texts_to_sequences(tweets)
 print("Before sequence padding")
 print(X_train)
-#X_train = sequence.pad_sequences(X_train, maxlen=maxlen)
 print("After sequence padding")
-print(X_train)
+print(sequence.pad_sequences(X_train, maxlen=140))
+#print(X_train)
 print(labels)
 Y_train = np_utils.to_categorical(labels, len(set(labels)))
 print(Y_train)
